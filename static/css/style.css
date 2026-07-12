@@ -1,0 +1,154 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:url("../images/hero.jpg");
+    background-size:cover;
+    background-position:center;
+    min-height:100vh;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    z-index:-1;
+}
+
+nav{
+    width:90%;
+    margin:20px auto;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:18px 30px;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(15px);
+
+    border-radius:18px;
+
+    border:1px solid rgba(255,255,255,.2);
+}
+
+.logo{
+    color:white;
+    font-size:28px;
+    font-weight:bold;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+}
+
+nav ul li{
+    margin:0 18px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#FFD700;
+}
+
+.buttons a{
+    text-decoration:none;
+    padding:12px 22px;
+    border-radius:30px;
+    margin-left:10px;
+}
+
+.apply-btn{
+    background:#2E8B57;
+    color:white;
+}
+
+.login-btn{
+    background:rgba(255,255,255,.2);
+    color:white;
+    border:1px solid rgba(255,255,255,.2);
+}
+
+.hero{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    height:80vh;
+
+    text-align:center;
+}
+
+.hero-content{
+
+    width:80%;
+    max-width:800px;
+
+    padding:50px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(15px);
+
+    border-radius:25px;
+
+    color:white;
+}
+
+.hero h1{
+
+    font-size:60px;
+
+    margin-bottom:20px;
+}
+
+.hero p{
+
+    font-size:24px;
+
+    margin-bottom:40px;
+}
+
+.hero-buttons a{
+
+    text-decoration:none;
+
+    padding:15px 35px;
+
+    border-radius:35px;
+
+    margin:10px;
+
+    display:inline-block;
+}
+
+.btn-primary{
+
+    background:#2E8B57;
+
+    color:white;
+}
+
+.btn-secondary{
+
+    background:rgba(255,255,255,.15);
+
+    color:white;
+
+    border:1px solid rgba(255,255,255,.2);
+}
