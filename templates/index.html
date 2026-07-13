@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>Brightheaven International School</h1>
+
+        <p>
+            Lighting the Path to Excellence
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="/apply" class="btn-primary">
+                Apply Now
+            </a>
+
+            <a href="/about" class="btn-secondary">
+                Learn More
+            </a>
+
+        </div>
+
+    </div>
+</section>
+<section class="stats">
+
+    <div class="stat-card">
+        <h2>650+</h2>
+        <p>Students</p>
+    </div>
+
+    <div class="stat-card">
+        <h2>45+</h2>
+        <p>Qualified Teachers</p>
+    </div>
+
+    <div class="stat-card">
+        <h2>98%</h2>
+        <p>Success Rate</p>
+    </div>
+
+    <div class="stat-card">
+        <h2>15+</h2>
+        <p>Years of Excellence</p>
+    </div>
+    
+</section>
+
+<section class="why-us">
+
+    <h2>Why Choose Brightheaven?</h2>
+
+    <div class="features">
+
+        <div class="feature-card">
+            <h3>🎓 Academic Excellence</h3>
+            <p>
+                We are committed to helping every child reach their highest academic potential.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <h3>👩🏽‍🏫 Qualified Teachers</h3>
+            <p>
+                Our experienced teachers inspire confidence, creativity and lifelong learning.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <h3>💻 Modern ICT Lab</h3>
+            <p>
+                Students learn with modern technology in a practical digital environment.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <h3>🛡 Safe Learning Environment</h3>
+            <p>
+                We provide a secure, friendly and supportive environment where every child can thrive.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="admission-banner">
+
+    <div class="banner-content">
+
+        <h2>Admissions Now Open</h2>
+
+        <p>
+            Applications for the 2026/2027 Academic Session are now open.
+            Give your child the opportunity to learn, grow and succeed.
+        </p>
+
+        <a href="/apply" class="banner-btn">
+            Apply for Admission
+        </a>
+
+    </div>
+
+</section>
+
+<section class="gallery">
+
+    <h2>Life at Brightheaven</h2>
+
+    <div class="gallery-grid">
+
+        <img src="{{ url_for('static', filename='images/gallery1.jpg') }}">
+        <img src="{{ url_for('static', filename='images/gallery2.jpg') }}">
+        <img src="{{ url_for('static', filename='images/gallery3.jpg') }}">
+        <img src="{{ url_for('static', filename='images/gallery4.jpg') }}">
+        <img src="{{ url_for('static', filename='images/gallery5.jpg') }}">
+        <img src="{{ url_for('static', filename='images/gallery6.jpg') }}">
+
+    </div>
+
+</section>
+
+{% endblock %}
+</html>

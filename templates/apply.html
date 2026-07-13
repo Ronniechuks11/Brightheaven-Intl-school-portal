@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>Admission Application</h1>
+
+        <p>
+            Complete the form below to apply for admission into Brightheaven International School.
+        </p>
+
+        <form class="application-form">
+
+            <input type="text" placeholder="First Name" required>
+
+            <input type="text" placeholder="Last Name" required>
+
+            <input type="date" required>
+
+            <select required>
+                <option>Select Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+
+            <select required>
+                <option>Class Applying For</option>
+                <option>Primary 1</option>
+                <option>Primary 2</option>
+                <option>Primary 3</option>
+                <option>JS1</option>
+                <option>JS2</option>
+                <option>JS3</option>
+                <option>SS1</option>
+                <option>SS2</option>
+                <option>SS3</option>
+            </select>
+
+            <input type="text" placeholder="Parent/Guardian Name" required>
+
+            <input type="tel" placeholder="Phone Number" required>
+
+            <input type="email" placeholder="Email Address">
+
+            <textarea placeholder="Home Address" rows="4"></textarea>
+
+            <button type="submit">
+                Submit Application
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+{% endblock %}

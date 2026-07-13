@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brightheaven International School</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+
+    <nav>
+
+        <div class="logo">
+            🏫 Brightheaven
+        </div>
+
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('admissions') }}">Admissions</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        </ul>
+
+        <div class="buttons">
+            <a href="/apply" class="apply-btn">Apply Now</a>
+            <a href="/login" class="login-btn">Login</a>
+        </div>
+
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+
+    <footer>
+
+        <div class="footer-content">
+
+            <h2>🏫 Brightheaven International School</h2>
+
+            <p>Lighting the Path to Excellence</p>
+
+            <p>Email: info@brightheaven.edu.ng</p>
+
+            <p>Phone: +234 800 123 4567</p>
+
+            <p>Enugu, Nigeria</p>
+
+            <p class="copyright">
+                © 2026 Brightheaven International School.
+            </p>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
