@@ -502,3 +502,103 @@ APPLICATION FORM
 
     background:#236B43;
 }
+
+/* ==========================
+   MOBILE RESPONSIVE
+========================== */
+
+@media (max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        padding:15px;
+        gap:15px;
+    }
+
+    .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:15px;
+    }
+
+    .buttons{
+        width:100%;
+        justify-content:center;
+    }
+
+    .hero{
+
+        min-height:100vh;
+
+        padding:120px 20px 60px;
+    }
+
+    .hero-content{
+
+        width:100%;
+
+        max-width:100%;
+
+        padding:30px 20px;
+    }
+
+    .hero-content h1{
+
+        font-size:2.5rem;
+    }
+
+    .hero-content p{
+
+        font-size:1.1rem;
+    }
+
+    .hero-buttons{
+
+        flex-direction:column;
+
+        gap:15px;
+    }
+
+    .hero-buttons a{
+
+        width:100%;
+
+        text-align:center;
+    }
+
+    .stats{
+
+        display:grid;
+
+        grid-template-columns:1fr 1fr;
+
+        gap:20px;
+
+        padding:40px 20px;
+    }
+
+    .stat-card{
+
+        width:100%;
+    }
+
+    .features{
+
+        display:grid;
+
+        grid-template-columns:1fr;
+
+        gap:20px;
+    }
+
+    .feature-card{
+
+        width:100%;
+    }
+
+    .gallery-grid{
+
+        grid-template-columns:1fr;
+    }
+
+}
