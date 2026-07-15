@@ -63,6 +63,28 @@ def about():
 def admissions():
     return render_template("admissions.html")
 
+@app.route("/admin/applicant/<int:applicant_id>")
+def applicant_details(applicant_id):
+
+    conn = sqlite3.connect("school.db")
+    conn.row_factory = sqlite3.Row
+
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "SELECT * FROM applicants WHERE id = ?",
+        (applicant_id,)
+    )
+
+    applicant = cursor.fetchone()
+
+    conn.close()
+
+    return render_template(
+        "admin/applicant_details.html",
+        applicant=applicant
+    )
+
 @app.route("/admin/applicants")
 def applicants():
 

@@ -1,0 +1,62 @@
+<table class="applicants-table">
+
+          {% extends "base.html" %}
+
+{% block content %}
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>Applicants</h1>
+
+        <p>All submitted admission applications.</p>
+
+          <thead>
+
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Class</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+            {% for applicant in applicants %}
+
+                <tr>
+
+                    <td>{{ applicant["id"] }}</td>
+
+                    <td>
+                        {{ applicant["first_name"] }}
+                        {{ applicant["last_name"] }}
+                    </td>
+
+                    <td>{{ applicant["class_applying"] }}</td>
+
+                    <td>{{ applicant["status"] }}</td>
+
+                    <td>
+    <a href="{{ url_for('applicant_details', applicant_id=applicant['id']) }}">
+        View
+    </a>
+</td>
+
+                </tr>
+
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -652,3 +652,47 @@ APPLICATION FORM
         display:block;
     }
 }
+
+/* =========================
+   APPLICANTS TABLE
+========================= */
+
+.applicants-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:30px;
+
+    background:white;
+
+    color:black;
+
+    border-radius:12px;
+
+    overflow:hidden;
+}
+
+.applicants-table th{
+
+    background:#2E8B57;
+
+    color:white;
+
+    padding:15px;
+}
+
+.applicants-table td{
+
+    padding:15px;
+
+    border-bottom:1px solid #ddd;
+
+    text-align:center;
+}
+
+.applicants-table tr:hover{
+
+    background:#f4f4f4;
+}
