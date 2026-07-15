@@ -104,6 +104,40 @@ def applicants():
         applicants=applicants
     )
 
+@app.route("/admin/applicant/<int:applicant_id>/approve")
+def approve_applicant(applicant_id):
+
+    conn = sqlite3.connect("school.db")
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "UPDATE applicants SET status='Approved' WHERE id=?",
+        (applicant_id,)
+    )
+
+    conn.commit()
+    conn.close()
+
+    return redirect(url_for("applicant_details",
+                            applicant_id=applicant_id))
+
+@app.route("/admin/applicant/<int:applicant_id>/reject")
+def reject_applicant(applicant_id):
+
+    conn = sqlite3.connect("school.db")
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "UPDATE applicants SET status='Rejected' WHERE id=?",
+        (applicant_id,)
+    )
+
+    conn.commit()
+    conn.close()
+
+    return redirect(url_for("applicant_details",
+                            applicant_id=applicant_id))
+
 @app.route("/contact")
 def contact():
     return render_template("contact.html")

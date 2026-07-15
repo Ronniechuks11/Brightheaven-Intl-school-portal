@@ -696,3 +696,40 @@ APPLICATION FORM
 
     background:#f4f4f4;
 }
+
+.action-buttons{
+
+    margin-top:30px;
+
+    display:flex;
+
+    gap:20px;
+
+    justify-content:center;
+}
+
+.approve-btn{
+
+    background:#28a745;
+
+    color:white;
+
+    padding:12px 25px;
+
+    border-radius:8px;
+
+    text-decoration:none;
+}
+
+.reject-btn{
+
+    background:#dc3545;
+
+    color:white;
+
+    padding:12px 25px;
+
+    border-radius:8px;
+
+    text-decoration:none;
+}

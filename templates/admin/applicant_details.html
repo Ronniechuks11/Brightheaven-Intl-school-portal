@@ -26,6 +26,20 @@
 
         <p><strong>Status:</strong> {{ applicant["status"] }}</p>
 
+        <div class="action-buttons">
+
+    <a href="{{ url_for('approve_applicant', applicant_id=applicant['id']) }}"
+       class="approve-btn">
+        Approve
+    </a>
+
+    <a href="{{ url_for('reject_applicant', applicant_id=applicant['id']) }}"
+       class="reject-btn">
+        Reject
+    </a>
+
+</div>
+
     </div>
 
 </section>
