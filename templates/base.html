@@ -15,23 +15,35 @@
 
     <nav>
 
-        <div class="logo">
-            🏫 Brightheaven
-        </div>
+    <div class="logo">
+        🏫 Brightheaven
+    </div>
 
-        <ul>
-            <li><a href="{{ url_for('home') }}">Home</a></li>
-            <li><a href="{{ url_for('about') }}">About</a></li>
-            <li><a href="{{ url_for('admissions') }}">Admissions</a></li>
-            <li><a href="{{ url_for('contact') }}">Contact</a></li>
-        </ul>
+    <div class="menu-toggle" id="menu-toggle">
+        ☰
+    </div>
 
-        <div class="buttons">
-            <a href="/apply" class="apply-btn">Apply Now</a>
-            <a href="/login" class="login-btn">Login</a>
-        </div>
+    <ul id="nav-links">
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('admissions') }}">Admissions</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
 
-    </nav>
+        <li class="mobile-only">
+            <a href="{{ url_for('apply') }}">Apply Now</a>
+        </li>
+
+        <li class="mobile-only">
+            <a href="{{ url_for('login') }}">Login</a>
+        </li>
+    </ul>
+
+    <div class="buttons">
+        <a href="{{ url_for('apply') }}" class="apply-btn">Apply Now</a>
+        <a href="{{ url_for('login') }}" class="login-btn">Login</a>
+    </div>
+
+</nav>
 
     {% block content %}
     {% endblock %}

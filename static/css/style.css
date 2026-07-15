@@ -602,3 +602,53 @@ APPLICATION FORM
     }
 
 }
+
+/* ===== Mobile Navigation ===== */
+
+.menu-toggle{
+    display:none;
+    font-size:30px;
+    color:white;
+    cursor:pointer;
+}
+
+.mobile-only{
+    display:none;
+}
+
+@media (max-width:768px){
+
+    .menu-toggle{
+        display:block;
+    }
+
+    nav{
+        position:relative;
+    }
+
+    nav ul{
+
+        display:none;
+
+        flex-direction:column;
+
+        width:100%;
+
+        margin-top:20px;
+    }
+
+    nav ul.active{
+
+        display:flex;
+    }
+
+    .buttons{
+
+        display:none;
+    }
+
+    .mobile-only{
+
+        display:block;
+    }
+}
