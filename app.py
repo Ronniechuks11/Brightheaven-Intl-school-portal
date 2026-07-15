@@ -1,9 +1,48 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
+import sqlite3
 
 app = Flask(__name__)
 
-@app.route("/apply")
+@app.route("/apply", methods=["GET", "POST"])
 def apply():
+
+    if request.method == "POST":
+
+        first_name = request.form["first_name"]
+        last_name = request.form["last_name"]
+        date_of_birth = request.form["date_of_birth"]
+        gender = request.form["gender"]
+        class_applying = request.form["class_applying"]
+        parent_name = request.form["parent_name"]
+        phone = request.form["phone"]
+        email = request.form["email"]
+        address = request.form["address"]
+
+        conn = sqlite3.connect("school.db")
+        cursor = conn.cursor()
+
+        cursor.execute("""
+            INSERT INTO applicants
+            (first_name, last_name, date_of_birth, gender,
+             class_applying, parent_name, phone, email, address)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, (
+            first_name,
+            last_name,
+            date_of_birth,
+            gender,
+            class_applying,
+            parent_name,
+            phone,
+            email,
+            address
+        ))
+
+        conn.commit()
+        conn.close()
+
+        return redirect(url_for("home"))
+
     return render_template("apply.html")
 
 @app.route("/login")
@@ -24,6 +63,24 @@ def about():
 def admissions():
     return render_template("admissions.html")
 
+@app.route("/admin/applicants")
+def applicants():
+
+    conn = sqlite3.connect("school.db")
+    conn.row_factory = sqlite3.Row
+
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM applicants")
+
+    applicants = cursor.fetchall()
+
+    conn.close()
+
+    return render_template(
+        "admin/applicants.html",
+        applicants=applicants
+    )
 
 @app.route("/contact")
 def contact():
