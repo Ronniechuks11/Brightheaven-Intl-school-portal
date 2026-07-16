@@ -14,6 +14,22 @@
 
         <form method="POST" enctype="multipart/form-data">
 
+    <label>Passport Photograph</label>
+
+<input
+    type="file"
+    name="passport"
+    accept="image/*"
+    required>
+
+<label>Birth Certificate</label>
+
+<input
+    type="file"
+    name="birth_certificate"
+    accept=".pdf,.jpg,.jpeg,.png"
+    required>
+
     <input type="text" name="first_name" placeholder="First Name" required>
 
     <input type="text" name="last_name" placeholder="Last Name" required>

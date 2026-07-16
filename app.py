@@ -93,7 +93,17 @@ def applicants():
 
     cursor = conn.cursor()
 
-    cursor.execute("SELECT * FROM applicants")
+    search = request.args.get("search", "")
+
+    if search:
+        cursor.execute("""
+            SELECT *
+            FROM applicants
+            WHERE first_name LIKE ?
+            OR last_name LIKE ?
+        """, (f"%{search}%", f"%{search}%"))
+    else:
+        cursor.execute("SELECT * FROM applicants")
 
     applicants = cursor.fetchall()
 
@@ -101,7 +111,8 @@ def applicants():
 
     return render_template(
         "admin/applicants.html",
-        applicants=applicants
+        applicants=applicants,
+        search=search
     )
 
 @app.route("/admin/applicant/<int:applicant_id>/approve")
@@ -137,6 +148,39 @@ def reject_applicant(applicant_id):
 
     return redirect(url_for("applicant_details",
                             applicant_id=applicant_id))
+
+@app.route("/admin/dashboard")
+def admin_dashboard():
+
+    conn = sqlite3.connect("school.db")
+    conn.row_factory = sqlite3.Row
+    cursor = conn.cursor()
+
+    # Total applicants
+    cursor.execute("SELECT COUNT(*) FROM applicants")
+    total = cursor.fetchone()[0]
+
+    # Pending applicants
+    cursor.execute("SELECT COUNT(*) FROM applicants WHERE status='Pending'")
+    pending = cursor.fetchone()[0]
+
+    # Approved applicants
+    cursor.execute("SELECT COUNT(*) FROM applicants WHERE status='Approved'")
+    approved = cursor.fetchone()[0]
+
+    # Rejected applicants
+    cursor.execute("SELECT COUNT(*) FROM applicants WHERE status='Rejected'")
+    rejected = cursor.fetchone()[0]
+
+    conn.close()
+
+    return render_template(
+        "admin/dashboard.html",
+        total=total,
+        pending=pending,
+        approved=approved,
+        rejected=rejected
+    )
 
 @app.route("/contact")
 def contact():

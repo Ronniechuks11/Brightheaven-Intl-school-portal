@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="dashboard-container">
+
+    <h1>Admin Dashboard</h1>
+
+    <div class="dashboard-cards">
+
+        <div class="dashboard-card">
+            <h2>{{ total }}</h2>
+            <p>Total Applicants</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h2>{{ pending }}</h2>
+            <p>Pending</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h2>{{ approved }}</h2>
+            <p>Approved</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h2>{{ rejected }}</h2>
+            <p>Rejected</p>
+        </div>
+
+    </div>
+
+    <div class="dashboard-buttons">
+
+        <a href="/admin/applicants">
+            View Applicants
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}
