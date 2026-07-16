@@ -1,9 +1,17 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import (
+    Flask,
+    render_template,
+    request,
+    redirect,
+    url_for,
+    session
+)
 import sqlite3
 import os
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
+app.secret_key = "brightheaven_secret_key"
 
 @app.route("/apply", methods=["GET", "POST"])
 def apply():
@@ -89,6 +97,10 @@ def admissions():
 @app.route("/admin/applicant/<int:applicant_id>")
 def applicant_details(applicant_id):
 
+    if "admin" not in session:
+        return redirect(url_for("admin_login"))
+    
+
     conn = sqlite3.connect("school.db")
     conn.row_factory = sqlite3.Row
 
@@ -110,6 +122,9 @@ def applicant_details(applicant_id):
 
 @app.route("/admin/applicants")
 def applicants():
+
+    if "admin" not in session:
+        return redirect(url_for("admin_login"))
 
     conn = sqlite3.connect("school.db")
     conn.row_factory = sqlite3.Row
@@ -175,6 +190,9 @@ def reject_applicant(applicant_id):
 
 @app.route("/admin/dashboard")
 def admin_dashboard():
+    
+    if "admin" not in session:
+        return redirect(url_for("admin_login"))
 
     conn = sqlite3.connect("school.db")
     conn.row_factory = sqlite3.Row
@@ -205,6 +223,39 @@ def admin_dashboard():
         approved=approved,
         rejected=rejected
     )
+
+@app.route("/admin/login", methods=["GET", "POST"])
+def admin_login():
+
+    if request.method == "POST":
+
+        username = request.form["username"]
+        password = request.form["password"]
+
+        conn = sqlite3.connect("school.db")
+    conn.row_factory = sqlite3.Row
+    cursor = conn.cursor()
+
+    cursor.execute(
+    "SELECT * FROM admins WHERE username=? AND password=?",
+    (username, password)
+    )
+
+    admin = cursor.fetchone()
+    conn.close()
+
+    if admin:
+        session["admin"] = admin["id"]
+        return redirect(url_for("admin_dashboard"))
+
+    return "Invalid username or password"
+
+@app.route("/admin/logout")
+def admin_logout():
+
+    session.pop("admin", None)
+
+    return redirect(url_for("admin_login"))
 
 @app.route("/contact")
 def contact():
