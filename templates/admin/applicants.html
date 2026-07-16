@@ -58,6 +58,18 @@
     <a href="{{ url_for('applicant_details', applicant_id=applicant['id']) }}">
         View
     </a>
+
+    <br><br>
+
+    <a href="{{ url_for('approve_applicant', applicant_id=applicant['id']) }}">
+        ✅ Approve
+    </a>
+
+    <br><br>
+
+    <a href="{{ url_for('reject_applicant', applicant_id=applicant['id']) }}">
+        ❌ Reject
+    </a>
 </td>
 
                 </tr>

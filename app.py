@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 import sqlite3
+import os
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
@@ -17,26 +19,47 @@ def apply():
         phone = request.form["phone"]
         email = request.form["email"]
         address = request.form["address"]
+        passport = request.files["passport"]
+        birth_certificate = request.files["birth_certificate"]
 
+        passport_filename = secure_filename(passport.filename)
+        birth_certificate_filename = secure_filename(birth_certificate.filename)
+
+        passport.save(
+            os.path.join(
+                "static/uploads/passports",
+                passport_filename
+            )
+        )
+
+        birth_certificate.save(
+            os.path.join(
+                "static/uploads/birth_certificates",
+                birth_certificate_filename
+            )
+        )
         conn = sqlite3.connect("school.db")
         cursor = conn.cursor()
 
         cursor.execute("""
-            INSERT INTO applicants
-            (first_name, last_name, date_of_birth, gender,
-             class_applying, parent_name, phone, email, address)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-        """, (
-            first_name,
-            last_name,
-            date_of_birth,
-            gender,
-            class_applying,
-            parent_name,
-            phone,
-            email,
-            address
-        ))
+        INSERT INTO applicants
+        (first_name, last_name, date_of_birth, gender,
+         class_applying, parent_name, phone, email,
+         address, passport, birth_certificate)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    """, (
+         first_name,
+        last_name,
+        date_of_birth,
+        gender,
+        class_applying,
+        parent_name,
+        phone,
+        email,
+        address,
+        passport_filename,
+        birth_certificate_filename
+    ))
 
         conn.commit()
         conn.close()
@@ -148,6 +171,7 @@ def reject_applicant(applicant_id):
 
     return redirect(url_for("applicant_details",
                             applicant_id=applicant_id))
+
 
 @app.route("/admin/dashboard")
 def admin_dashboard():

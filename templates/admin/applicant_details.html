@@ -8,6 +8,14 @@
 
         <h1>Applicant Details</h1>
 
+        <h3>Passport Photograph</h3>
+
+    <img
+        src="{{ url_for('static', filename='uploads/passports/' + applicant['passport']) }}"
+        alt="Passport"
+        width="180"
+        style="border-radius:12px;">
+
         <p><strong>Name:</strong> {{ applicant["first_name"] }} {{ applicant["last_name"] }}</p>
 
         <p><strong>Date of Birth:</strong> {{ applicant["date_of_birth"] }}</p>
@@ -28,6 +36,12 @@
 
         <div class="action-buttons">
 
+    <a href="{{ url_for('static',
+filename='uploads/birth_certificates/' + applicant['birth_certificate']) }}"
+target="_blank">
+    View Birth Certificate
+</a>        
+
     <a href="{{ url_for('approve_applicant', applicant_id=applicant['id']) }}"
        class="approve-btn">
         Approve
@@ -37,6 +51,9 @@
        class="reject-btn">
         Reject
     </a>
+    <a href="{{ url_for('applicants') }}">
+    ← Back to Applicants
+</a>
 
 </div>
 

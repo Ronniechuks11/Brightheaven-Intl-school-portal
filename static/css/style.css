@@ -540,6 +540,8 @@ APPLICATION FORM
         max-width:100%;
 
         padding:30px 20px;
+
+        margin-bottom: 60px;
     }
 
     .hero-content h1{
@@ -870,4 +872,22 @@ form label{
     margin-bottom:6px;
     color:#fff;
     font-weight:bold;
+}
+
+form button{
+    width:100%;
+    padding:16px;
+    margin-top:20px;
+    border:none;
+    border-radius:15px;
+    background:#2ecc71;
+    color:#fff;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+form button:hover{
+    background:#27ae60;
 }
