@@ -819,3 +819,55 @@ APPLICATION FORM
     cursor:pointer;
     font-weight:bold;
 }
+
+.application-form label{
+    display:block;
+    margin-top:18px;
+    margin-bottom:8px;
+    color:#fff;
+    font-weight:600;
+}
+
+.application-form input[type="file"]{
+    width:100%;
+    padding:12px;
+    border-radius:12px;
+    background:rgba(255,255,255,.12);
+    color:#fff;
+    border:1px solid rgba(255,255,255,.25);
+    margin-bottom:15px;
+}
+
+.application-form input,
+.application-form select,
+.application-form textarea{
+    width:100%;
+    box-sizing:border-box;
+}
+
+form input,
+form select,
+form textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 12px 0;
+    border-radius: 12px;
+    border: none;
+    font-size: 16px;
+}
+
+form input[type="file"]{
+    background: rgba(255,255,255,.85);
+    color:#000;
+    padding:12px;
+    border-radius:12px;
+    cursor:pointer;
+}
+
+form label{
+    display:block;
+    margin-top:18px;
+    margin-bottom:6px;
+    color:#fff;
+    font-weight:bold;
+}
