@@ -233,22 +233,24 @@ def admin_login():
         password = request.form["password"]
 
         conn = sqlite3.connect("school.db")
-    conn.row_factory = sqlite3.Row
-    cursor = conn.cursor()
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
 
-    cursor.execute(
-    "SELECT * FROM admins WHERE username=? AND password=?",
-    (username, password)
-    )
+        cursor.execute(
+            "SELECT * FROM admins WHERE username=? AND password=?",
+            (username, password)
+        )
 
-    admin = cursor.fetchone()
-    conn.close()
+        admin = cursor.fetchone()
+        conn.close()
 
-    if admin:
-        session["admin"] = admin["id"]
-        return redirect(url_for("admin_dashboard"))
+        if admin:
+            session["admin"] = admin["id"]
+            return redirect(url_for("admin_dashboard"))
 
-    return "Invalid username or password"
+        return "Invalid username or password"
+
+    return render_template("admin_login.html")
 
 @app.route("/admin/logout")
 def admin_logout():
