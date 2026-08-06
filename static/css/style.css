@@ -891,3 +891,142 @@ form button{
 form button:hover{
     background:#27ae60;
 }
+
+/* ==========================
+   LOADER
+========================== */
+
+#loader{
+
+    position:fixed;
+    inset:0;
+
+    background:#16a34a;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    z-index:999999;
+
+    transition:opacity .7s ease, visibility .7s ease;
+
+}
+
+.loader-logo{
+
+    color:#fff;
+
+    font-size:42px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    animation:logoReveal 1.8s ease infinite;
+
+}
+
+@keyframes logoReveal{
+
+    0%{
+
+        opacity:0;
+        transform:scale(.8);
+
+    }
+
+    50%{
+
+        opacity:1;
+        transform:scale(1.08);
+
+    }
+
+    100%{
+
+        opacity:0;
+        transform:scale(1);
+
+    }
+
+}
+
+#loader.hide{
+
+    opacity:0;
+    visibility:hidden;
+
+}
+
+/* ==========================
+        PREMIUM LOADER
+========================== */
+
+#loader{
+    position:fixed;
+    inset:0;
+    background:#22c55e;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:999999;
+    overflow:hidden;
+}
+
+.loader-light{
+    position:absolute;
+    width:250px;
+    height:250px;
+    border-radius:50%;
+    background:rgba(255,255,255,.18);
+    filter:blur(60px);
+    animation:pulse 2s infinite;
+}
+
+.loader-logo{
+    position:relative;
+    color:#fff;
+    font-size:42px;
+    font-weight:800;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    letter-spacing:1px;
+}
+
+.school-icon{
+    animation:bounce 1.5s infinite;
+}
+
+.typing-text{
+    overflow:hidden;
+    white-space:nowrap;
+    width:0;
+    border-right:3px solid white;
+    animation:
+        typing 2s steps(12,end) forwards,
+        blink .7s infinite;
+}
+
+@keyframes typing{
+    from{width:0;}
+    to{width:260px;}
+}
+
+@keyframes blink{
+    50%{border-color:transparent;}
+}
+
+@keyframes bounce{
+    50%{
+        transform:translateY(-8px);
+    }
+}
+
+@keyframes pulse{
+    50%{
+        transform:scale(1.4);
+        opacity:.5;
+    }
+}

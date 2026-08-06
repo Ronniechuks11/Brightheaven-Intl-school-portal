@@ -5,28 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brightheaven International School</title>
 
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/hero.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sections.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animations.css') }}">
 </head>
 
 <body>
+
+    <!-- Loader -->
+<div id="loader">
+
+    <div class="loader-light"></div>
+
+    <div class="loader-logo">
+        <span class="school-icon">🏫</span>
+        <span class="typing-text">Brightheaven</span>
+    </div>
+
+</div>
 
     <!-- Navigation -->
 
         <nav>
 
     <div class="logo">
-        🏫 Brightheaven
+        🏫Brightheaven
     </div>
 
-    <div class="menu-toggle" id="menu-toggle">
+    <div class="menu-toggle" id="menuBtn">
         ☰
     </div>
 
-    <ul id="nav-links">
+    <ul class="nav-links" id="navLinks">
+
         <li><a href="{{ url_for('home') }}">Home</a></li>
+
         <li><a href="{{ url_for('about') }}">About</a></li>
+
         <li><a href="{{ url_for('admissions') }}">Admissions</a></li>
+
         <li><a href="{{ url_for('contact') }}">Contact</a></li>
 
         <li class="mobile-only">
@@ -36,39 +57,82 @@
         <li class="mobile-only">
             <a href="{{ url_for('login') }}">Login</a>
         </li>
+
     </ul>
 
     <div class="buttons">
-        <a href="{{ url_for('apply') }}" class="apply-btn">Apply Now</a>
-        <a href="{{ url_for('login') }}" class="login-btn">Login</a>
+
+        <a href="{{ url_for('apply') }}" class="apply-btn">
+            Apply Now
+        </a>
+
+        <a href="{{ url_for('login') }}" class="login-btn">
+            Login
+        </a>
+
     </div>
 
-    </nav>
+</nav>
 
     {% block content %}
     {% endblock %}
 
     <footer>
 
-        <div class="footer-content">
+    <div class="footer-container">
 
-            <h2>🏫 Brightheaven International School</h2>
+        <div class="footer-logo">
 
-            <p>Lighting the Path to Excellence</p>
+            <h2>Brightheaven</h2>
 
-            <p>Email: info@brightheaven.edu.ng</p>
-
-            <p>Phone: +234 800 123 4567</p>
-
-            <p>Enugu, Nigeria</p>
-
-            <p class="copyright">
-                © 2026 Brightheaven International School.
+            <p>
+                Raising future leaders through quality education,
+                innovation and character development.
             </p>
 
         </div>
 
-    </footer>
+        <div class="footer-links">
+
+            <h3>Quick Links</h3>
+
+            <ul>
+
+                <li><a href="/">Home</a></li>
+
+                <li><a href="/about">About</a></li>
+
+                <li><a href="/admissions">Admissions</a></li>
+
+                <li><a href="/contact">Contact</a></li>
+
+            </ul>
+
+        </div>
+
+        <div class="footer-contact">
+
+            <h3>Contact</h3>
+
+            <p>📍 Enugu, Nigeria</p>
+
+            <p>📞 +234 XXX XXX XXXX</p>
+
+            <p>✉️ info@brightheaven.edu.ng</p>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        © 2026 Brightheaven International School. All Rights Reserved.
+
+    </div>
+
+</footer>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
 </body>
 </html>

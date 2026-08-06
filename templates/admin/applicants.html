@@ -1,4 +1,17 @@
-<form method="GET" class="search-form">
+{% extends "base.html" %}
+
+{% block content %}
+
+<table class="applicants-table">
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>Applicants</h1>
+
+        <p>All submitted admission applications.</p>
+        <form method="GET" class="search-form">
 
     <input
         type="text"
@@ -11,20 +24,6 @@
     </button>
 
 </form>
-<table class="applicants-table">
-
-          {% extends "base.html" %}
-
-{% block content %}
-
-<section class="hero">
-
-    <div class="hero-content">
-
-        <h1>Applicants</h1>
-
-        <p>All submitted admission applications.</p>
-
           <thead>
 
                 <tr>

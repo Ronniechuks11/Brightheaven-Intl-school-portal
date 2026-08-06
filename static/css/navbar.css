@@ -1,0 +1,144 @@
+/* ==========================
+        NAVBAR
+========================== */
+
+nav{
+
+    position:sticky;
+    top:0;
+
+    width:100%;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:18px 8%;
+
+    background:rgba(255,255,255,.92);
+
+    backdrop-filter:blur(14px);
+
+    box-shadow:0 5px 20px rgba(0,0,0,.06);
+
+    z-index:1000;
+
+}
+
+.logo{
+
+    font-size:28px;
+
+    font-weight:800;
+
+    color:#15803d;
+
+}
+
+nav ul{
+
+    display:flex;
+
+    list-style:none;
+
+    gap:35px;
+
+}
+
+nav ul li a{
+
+    color:#222;
+
+    font-weight:600;
+
+    position:relative;
+
+}
+
+nav ul li a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-6px;
+
+    width:0;
+
+    height:3px;
+
+    background:#16a34a;
+
+    transition:.3s;
+
+}
+
+nav ul li a:hover::after{
+
+    width:100%;
+
+}
+
+.buttons{
+
+    display:flex;
+
+    gap:12px;
+
+}
+
+.apply-btn{
+
+    background:#16a34a;
+
+    color:white;
+
+    padding:12px 24px;
+
+    border-radius:10px;
+
+    font-weight:600;
+
+}
+
+.apply-btn:hover{
+
+    background:#15803d;
+
+}
+
+.login-btn{
+
+    border:2px solid #16a34a;
+
+    color:#16a34a;
+
+    padding:12px 24px;
+
+    border-radius:10px;
+
+    font-weight:600;
+
+}
+
+.login-btn:hover{
+
+    background:#16a34a;
+
+    color:white;
+
+}
+
+/* Mobile Menu Button */
+
+.menu-toggle{
+
+    display:none;
+
+    font-size:32px;
+
+    cursor:pointer;
+
+}
