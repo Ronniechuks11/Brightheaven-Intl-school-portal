@@ -251,3 +251,28 @@ font-size:1.5rem;
     }
 
 }
+
+@media(max-width:768px){
+
+    .application-form{
+
+        grid-template-columns:1fr;
+    }
+
+    .application-form textarea,
+
+    .application-form button{
+
+        grid-column:auto;
+    }
+
+    .apply-overlay{
+
+        padding:25px;
+    }
+
+    .apply-header h1{
+
+        font-size:2.2rem;
+    }
+}
