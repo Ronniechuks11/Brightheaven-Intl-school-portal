@@ -189,3 +189,65 @@ font-size:1.5rem;
 }
 
 }
+
+#loader{
+    position:fixed;
+    inset:0;
+    width:100vw;
+    height:100vh;
+
+    background:#2ecc71;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    z-index:99999;
+}
+
+.loader-content{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+
+    width:100%;
+    padding:20px;
+    text-align:center;
+}
+
+.loader-content h1{
+    color:white;
+    font-size:3rem;
+    font-weight:800;
+
+    animation:typing 2s steps(12), blink .7s infinite;
+    white-space:nowrap;
+    overflow:hidden;
+    border-right:4px solid white;
+}
+
+.loader-content span{
+    font-size:60px;
+}
+
+@media(max-width:768px){
+
+    .loader-content{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .loader-content span{
+        font-size:70px;
+    }
+
+    .loader-content h1{
+        font-size:2.2rem;
+        border-right:none;
+        white-space:normal;
+        overflow:visible;
+        animation:fadeIn .8s;
+    }
+
+}
