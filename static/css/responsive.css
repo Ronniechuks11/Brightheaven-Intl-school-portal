@@ -538,3 +538,196 @@ font-size:1.5rem;
         z-index: 99999 !important;
     }
 }
+
+/* =========================================
+   FINAL MOBILE FIX
+========================================= */
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* NAVIGATION */
+nav {
+    width: calc(100% - 24px);
+    max-width: 100%;
+    margin: 10px auto;
+    padding: 14px 18px;
+    position: relative;
+    z-index: 9999;
+}
+
+.logo {
+    font-size: 22px;
+    white-space: nowrap;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 10001;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+    body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    nav {
+        width: calc(100% - 20px);
+        margin: 10px auto;
+        padding: 14px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        z-index: 9999;
+    }
+
+    .logo {
+        font-size: 21px;
+        max-width: 80%;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .menu-toggle {
+        display: block;
+        flex-shrink: 0;
+        color: #16834a;
+    }
+
+    nav ul {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background: white;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 15px 40px rgba(0,0,0,.15);
+        z-index: 10000;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    nav ul li {
+        width: 100%;
+        margin: 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    nav ul li:last-child {
+        border-bottom: none;
+    }
+
+    nav ul li a {
+        display: block;
+        width: 100%;
+        padding: 20px 22px;
+        color: #222;
+        font-size: 16px;
+        text-decoration: none;
+    }
+
+    nav ul li a:hover {
+        background: #f1faf5;
+        color: #16834a;
+    }
+
+    .buttons {
+        display: none;
+    }
+
+
+    /* =====================================
+       HERO — IMPORTANT FIX
+    ===================================== */
+
+    .hero {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+
+        margin: 0;
+        padding: 50px 18px;
+
+        display: flex;
+        flex-direction: column;
+
+        overflow: hidden;
+    }
+
+    .hero-content,
+    .hero-text,
+    .hero-image {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .hero-image img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+
+    /* =====================================
+       STATS
+    ===================================== */
+
+    .stats {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 35px 18px;
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .stat-card {
+        min-width: 0;
+        padding: 25px 12px;
+    }
+
+
+    /* =====================================
+       GENERAL SECTIONS
+    ===================================== */
+
+    .about-home,
+    .features-section,
+    .gallery,
+    .cta,
+    .why-us,
+    .admission-banner {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    img {
+        max-width: 100%;
+    }
+}
