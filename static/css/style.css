@@ -3565,6 +3565,5 @@ footer{
 
 .admin-dashboard {
     background:
-        linear-gradient(rgba(40, 50, 38, 0.92), rgba(151, 79, 79, 0.92)),
-        url("../images/admission-bg.jpg") center/cover fixed;
+        url("../images/adminstats.jpg") center/cover fixed;
 }
