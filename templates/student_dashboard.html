@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="student-dashboard">
+
+    <div class="student-welcome">
+
+        <div>
+            <span class="dashboard-label">
+                STUDENT PORTAL
+            </span>
+
+            <h1>
+                Welcome, {{ student["first_name"] }} 👋
+            </h1>
+
+            <p>
+                Manage your Brightheaven school information from your dashboard.
+            </p>
+        </div>
+
+        <a href="{{ url_for('student_logout') }}" class="logout-btn">
+            Logout
+        </a>
+
+    </div>
+
+
+    <div class="student-profile-card">
+
+        <div class="student-avatar">
+            {{ student["first_name"][0] }}
+        </div>
+
+        <div>
+            <h2>
+                {{ student["first_name"] }} {{ student["last_name"] }}
+            </h2>
+
+            <p>
+                Student ID:
+                <strong>{{ student["student_id"] }}</strong>
+            </p>
+
+            <p>
+                Class:
+                <strong>{{ student["class_name"] or "Not assigned" }}</strong>
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="student-dashboard-grid">
+
+        <div class="portal-card">
+
+            <div class="portal-icon">
+                👤
+            </div>
+
+            <h3>My Profile</h3>
+
+            <p>
+                View your personal and student information.
+            </p>
+
+            <a href="#">
+                View Profile →
+            </a>
+
+        </div>
+
+
+        <div class="portal-card">
+
+            <div class="portal-icon">
+                📚
+            </div>
+
+            <h3>Academic Information</h3>
+
+            <p>
+                Your class, academic records and school information.
+            </p>
+
+            <a href="#">
+                View Academics →
+            </a>
+
+        </div>
+
+
+        <div class="portal-card">
+
+            <div class="portal-icon">
+                📝
+            </div>
+
+            <h3>Results</h3>
+
+            <p>
+                Check your academic results when they become available.
+            </p>
+
+            <a href="#">
+                View Results →
+            </a>
+
+        </div>
+
+
+        <div class="portal-card">
+
+            <div class="portal-icon">
+                📢
+            </div>
+
+            <h3>Announcements</h3>
+
+            <p>
+                Stay updated with important school announcements.
+            </p>
+
+            <a href="#">
+                View Updates →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

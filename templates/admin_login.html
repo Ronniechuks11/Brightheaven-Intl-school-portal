@@ -1,34 +1,77 @@
 {% extends "base.html" %}
 
+{% block title %}Admin Login | Brightheaven{% endblock %}
+
 {% block content %}
 
-<section class="hero">
+<section class="admin-login">
 
-<div class="hero-content">
+    <div class="login-container">
 
-<h1>Admin Login</h1>
+        <div class="login-card">
 
-<form method="POST">
+            <div class="login-brand">
+                <div class="login-icon">🏫</div>
 
-<input
-type="text"
-name="username"
-placeholder="Username"
-required>
+                <div>
+                    <h2>Brightheaven</h2>
+                    <span>Administration Portal</span>
+                </div>
+            </div>
 
-<input
-type="password"
-name="password"
-placeholder="Password"
-required>
+            <div class="login-heading">
+                <h1>Welcome Back</h1>
+                <p>
+                    Sign in to access the school administration dashboard.
+                </p>
+            </div>
 
-<button type="submit">
-Login
-</button>
+            <form method="POST">
 
-</form>
+                <div class="input-group">
 
-</div>
+                    <label for="username">Username</label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Enter your username"
+                        autocomplete="username"
+                        required
+                    >
+
+                </div>
+
+                <div class="input-group">
+
+                    <label for="password">Password</label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                </div>
+
+                <button type="submit" class="login-submit">
+                    Sign In
+                    <span>→</span>
+                </button>
+
+            </form>
+
+            <div class="login-footer">
+                🔒 Secure administration access
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 

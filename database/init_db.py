@@ -55,6 +55,56 @@ INSERT OR IGNORE INTO admins (username, password)
 VALUES (?, ?)
 """, ("admin", "12345"))
 
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS students (
+
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+    student_id TEXT UNIQUE NOT NULL,
+
+    first_name TEXT NOT NULL,
+
+    last_name TEXT NOT NULL,
+
+    email TEXT UNIQUE NOT NULL,
+
+    password TEXT NOT NULL,
+
+    class_name TEXT,
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+
+)
+""")
+
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS students (
+
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+    student_id TEXT UNIQUE NOT NULL,
+
+    applicant_id INTEGER UNIQUE NOT NULL,
+
+    first_name TEXT NOT NULL,
+
+    last_name TEXT NOT NULL,
+
+    email TEXT,
+
+    class_name TEXT,
+
+    password_hash TEXT NOT NULL,
+
+    must_change_password INTEGER DEFAULT 1,
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (applicant_id) REFERENCES applicants(id)
+
+)
+""")
+
 connection.commit()
 
 connection.close()

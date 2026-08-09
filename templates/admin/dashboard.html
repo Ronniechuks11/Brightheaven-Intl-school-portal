@@ -2,45 +2,312 @@
 
 {% block content %}
 
-<div class="dashboard-container">
+<div class="admin-dashboard">
 
-    <h1>Admin Dashboard</h1>
+    <!-- SIDEBAR -->
 
-    <div class="dashboard-cards">
+    <aside class="admin-sidebar">
 
-        <div class="dashboard-card">
-            <h2>{{ total }}</h2>
-            <p>Total Applicants</p>
+        <div class="admin-brand">
+            <div class="admin-logo">BH</div>
+
+            <div>
+                <h2>Brightheaven</h2>
+                <span>School Portal</span>
+            </div>
         </div>
 
-        <div class="dashboard-card">
-            <h2>{{ pending }}</h2>
-            <p>Pending</p>
+
+        <nav class="admin-nav">
+
+            <a href="{{ url_for('admin_dashboard') }}" class="active">
+                <span>▦</span>
+                Dashboard
+            </a>
+
+            <a href="{{ url_for('applicants') }}">
+                <span>👥</span>
+                Applicants
+            </a>
+
+            <a href="#">
+                <span>🎓</span>
+                Students
+            </a>
+
+            <a href="#">
+                <span>📚</span>
+                Academics
+            </a>
+
+            <a href="#">
+                <span>📢</span>
+                Announcements
+            </a>
+
+        </nav>
+
+
+        <div class="admin-sidebar-bottom">
+
+            <a href="{{ url_for('admin_logout') }}" class="admin-logout">
+                <span>↪</span>
+                Logout
+            </a>
+
         </div>
 
-        <div class="dashboard-card">
-            <h2>{{ approved }}</h2>
-            <p>Approved</p>
-        </div>
+    </aside>
 
-        <div class="dashboard-card">
-            <h2>{{ rejected }}</h2>
-            <p>Rejected</p>
-        </div>
 
-    </div>
+    <!-- MAIN -->
 
-    <div class="dashboard-buttons">
+    <main class="admin-main">
 
-        <a href="/admin/applicants">
-            View Applicants
-        </a>
+        <!-- TOPBAR -->
 
-        <a href="{{ url_for('admin_logout') }}" class="reject-btn">
-            Logout
-        </a>
+        <header class="admin-topbar">
 
-    </div>
+            <div>
+                <button class="admin-mobile-menu" id="adminMenuBtn">
+                    ☰
+                </button>
+
+                <div class="admin-heading">
+
+                    <span>ADMINISTRATION</span>
+
+                    <h1>Dashboard</h1>
+
+                </div>
+            </div>
+
+
+            <div class="admin-profile">
+
+                <div class="admin-avatar">
+                    A
+                </div>
+
+                <div class="admin-profile-info">
+                    <strong>Administrator</strong>
+                    <small>School Admin</small>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- WELCOME -->
+
+        <section class="admin-welcome">
+
+            <div>
+
+                <span class="welcome-label">
+                    BRIGHTHEAVEN INTERNATIONAL SCHOOL
+                </span>
+
+                <h2>
+                    Good day, Administrator 👋
+                </h2>
+
+                <p>
+                    Here's what's happening with your school portal today.
+                </p>
+
+            </div>
+
+            <a href="{{ url_for('applicants') }}" class="primary-admin-btn">
+                Review Applications →
+            </a>
+
+        </section>
+
+
+        <!-- STATISTICS -->
+
+        <section class="admin-stat-grid">
+
+            <div class="admin-stat-card">
+
+                <div class="stat-icon blue">
+                    👥
+                </div>
+
+                <div class="stat-info">
+
+                    <span>Total Applications</span>
+
+                    <strong>{{ total }}</strong>
+
+                    <small>All submitted applications</small>
+
+                </div>
+
+            </div>
+
+
+            <div class="admin-stat-card">
+
+                <div class="stat-icon orange">
+                    ⏳
+                </div>
+
+                <div class="stat-info">
+
+                    <span>Pending Review</span>
+
+                    <strong>{{ pending }}</strong>
+
+                    <small>Awaiting administrator action</small>
+
+                </div>
+
+            </div>
+
+
+            <div class="admin-stat-card">
+
+                <div class="stat-icon green">
+                    ✓
+                </div>
+
+                <div class="stat-info">
+
+                    <span>Approved</span>
+
+                    <strong>{{ approved }}</strong>
+
+                    <small>Successfully approved</small>
+
+                </div>
+
+            </div>
+
+
+            <div class="admin-stat-card">
+
+                <div class="stat-icon red">
+                    ×
+                </div>
+
+                <div class="stat-info">
+
+                    <span>Rejected</span>
+
+                    <strong>{{ rejected }}</strong>
+
+                    <small>Applications declined</small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUICK ACTIONS -->
+
+        <section class="admin-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span>MANAGEMENT</span>
+                    <h2>Quick Actions</h2>
+                </div>
+
+            </div>
+
+
+            <div class="quick-actions">
+
+                <a href="{{ url_for('applicants') }}" class="quick-action">
+
+                    <div class="quick-icon">
+                        📋
+                    </div>
+
+                    <div>
+                        <h3>Manage Applications</h3>
+
+                        <p>
+                            Review, approve or reject admission applications.
+                        </p>
+                    </div>
+
+                    <span class="arrow">→</span>
+
+                </a>
+
+
+                <a href="#" class="quick-action">
+
+                    <div class="quick-icon">
+                        🎓
+                    </div>
+
+                    <div>
+                        <h3>Student Management</h3>
+
+                        <p>
+                            Manage registered students and their information.
+                        </p>
+                    </div>
+
+                    <span class="arrow">→</span>
+
+                </a>
+
+
+                <a href="#" class="quick-action">
+
+                    <div class="quick-icon">
+                        📢
+                    </div>
+
+                    <div>
+                        <h3>Announcements</h3>
+
+                        <p>
+                            Create and manage school announcements.
+                        </p>
+                    </div>
+
+                    <span class="arrow">→</span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- SYSTEM STATUS -->
+
+        <section class="system-status">
+
+            <div>
+
+                <span class="status-dot"></span>
+
+                <strong>Portal System Operational</strong>
+
+                <p>
+                    All major school portal services are currently running.
+                </p>
+
+            </div>
+
+            <span class="secure-badge">
+                🔒 Secure Admin Area
+            </span>
+
+        </section>
+
+    </main>
 
 </div>
 

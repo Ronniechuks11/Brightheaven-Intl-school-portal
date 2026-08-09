@@ -276,3 +276,265 @@ font-size:1.5rem;
         font-size:2.2rem;
     }
 }
+
+/* =================================
+       ADMIN LOGIN MOBILE
+================================= */
+
+@media(max-width:600px){
+
+    .admin-login{
+
+        min-height:calc(100vh - 80px);
+
+        padding:30px 16px;
+
+        background-position:center;
+
+    }
+
+    .login-card{
+
+        padding:30px 22px;
+
+        border-radius:22px;
+
+    }
+
+    .login-brand{
+
+        margin-bottom:30px;
+
+    }
+
+    .login-heading h1{
+
+        font-size:30px;
+
+    }
+
+    .login-heading p{
+
+        font-size:14px;
+
+    }
+
+    .input-group input{
+
+        padding:15px;
+
+    }
+
+    .login-submit{
+
+        padding:15px;
+
+    }
+
+}
+
+
+/* SMALL PHONES */
+
+@media (max-width: 380px) {
+
+    .admin-login {
+        padding: 25px 12px;
+    }
+
+    .login-card {
+        padding: 25px 18px;
+    }
+
+    .login-brand h2 {
+        font-size: 21px;
+    }
+
+    .login-heading h1 {
+        font-size: 26px;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .admin-login {
+        min-height: calc(100vh - 80px);
+
+        padding: 35px 16px;
+    }
+
+    .login-container {
+        max-width: 100%;
+    }
+
+    .login-card {
+        padding: 28px 22px;
+
+        border-radius: 20px;
+    }
+
+    .login-brand {
+        margin-bottom: 28px;
+    }
+
+    .login-heading h1 {
+        font-size: 29px;
+    }
+
+    .login-heading p {
+        font-size: 14px;
+    }
+
+    .input-group input {
+        padding: 14px !important;
+        font-size: 16px;
+    }
+
+    .login-submit {
+        padding: 15px !important;
+    }
+}
+
+@media (max-width: 900px) {
+
+    .admin-sidebar {
+        width: 220px;
+    }
+
+    .admin-main {
+        width: calc(100% - 220px);
+        margin-left: 220px;
+        padding: 0 25px 50px;
+    }
+
+    .admin-stat-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .quick-actions {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .admin-dashboard {
+        display: block;
+    }
+
+    .admin-sidebar {
+        width: 250px;
+
+        transform: translateX(-100%);
+
+        transition: .3s;
+
+        box-shadow: 10px 0 30px rgba(0,0,0,.15);
+    }
+
+    .admin-sidebar.mobile-open {
+        transform: translateX(0);
+    }
+
+    .admin-main {
+        width: 100%;
+        margin-left: 0;
+
+        padding: 0 16px 45px;
+    }
+
+    .admin-topbar {
+        height: 75px;
+    }
+
+    .admin-mobile-menu {
+        display: inline-flex;
+
+        margin-right: 10px;
+
+        border: none;
+
+        background: transparent;
+
+        font-size: 22px;
+
+        cursor: pointer;
+    }
+
+    .admin-heading {
+        display: inline-block;
+    }
+
+    .admin-heading h1 {
+        font-size: 21px;
+    }
+
+    .admin-profile-info {
+        display: none;
+    }
+
+    .admin-welcome {
+        align-items: flex-start;
+        flex-direction: column;
+
+        margin: 28px 0;
+    }
+
+    .admin-welcome h2 {
+        font-size: 25px;
+    }
+
+    .primary-admin-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .admin-stat-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .admin-stat-card {
+        padding: 17px 13px;
+
+        align-items: flex-start;
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+    .stat-info strong {
+        font-size: 24px;
+    }
+
+    .stat-info small {
+        display: none;
+    }
+
+    .quick-action {
+        padding: 18px;
+    }
+
+    .system-status {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .secure-badge {
+        align-self: flex-start;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .admin-dashboard .admin-sidebar {
+        z-index: 99999 !important;
+    }
+}

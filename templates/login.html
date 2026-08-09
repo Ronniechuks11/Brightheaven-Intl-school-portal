@@ -2,13 +2,119 @@
 
 {% block content %}
 
-<section class="hero">
+<section class="portal-login">
 
-    <div class="hero-content">
+    <div class="portal-login-container">
 
-        <h1>Login</h1>
+        <!-- LEFT SIDE -->
+        <div class="portal-intro">
 
-        <p>Student and Admin Login Page (Coming Soon)</p>
+            <div class="portal-logo">
+                🏫
+            </div>
+
+            <span class="portal-label">
+                BRIGHTHEAVEN INTERNATIONAL SCHOOL
+            </span>
+
+            <h1>
+                Welcome to the
+                <span>School Portal</span>
+            </h1>
+
+            <p>
+                Access your school account, academic information,
+                announcements and other important resources from
+                one secure platform.
+            </p>
+
+            <div class="portal-line"></div>
+
+            <small>
+                Secure • Simple • Connected
+            </small>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+        <div class="login-selection">
+
+            <div class="login-heading">
+
+                <span>PORTAL ACCESS</span>
+
+                <h2>Choose your login</h2>
+
+                <p>
+                    Select the account type you want to access.
+                </p>
+
+            </div>
+
+
+            <!-- STUDENT -->
+            <a href="{{ url_for('student_login') }}" class="login-option">
+
+                <div class="login-icon student-icon">
+                    🎓
+                </div>
+
+                <div class="login-option-text">
+
+                    <h3>Student Login</h3>
+
+                    <p>
+                        Access your dashboard, results,
+                        profile and school updates.
+                    </p>
+
+                </div>
+
+                <div class="login-arrow">
+                    →
+                </div>
+
+            </a>
+
+
+            <!-- ADMIN -->
+            <a href="{{ url_for('admin_login') }}" class="login-option">
+
+                <div class="login-icon admin-icon">
+                    🔐
+                </div>
+
+                <div class="login-option-text">
+
+                    <h3>Admin Login</h3>
+
+                    <p>
+                        Manage students, admissions,
+                        applications and school records.
+                    </p>
+
+                </div>
+
+                <div class="login-arrow">
+                    →
+                </div>
+
+            </a>
+
+
+            <div class="login-footer">
+
+                <span>🔒</span>
+
+                <p>
+                    Your account information is protected
+                    and accessible only to authorized users.
+                </p>
+
+            </div>
+
+        </div>
 
     </div>
 

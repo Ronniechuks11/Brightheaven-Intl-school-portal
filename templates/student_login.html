@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="student-login-page">
+
+    <div class="student-login-card">
+
+        <div class="login-icon">
+            🎓
+        </div>
+
+        <h1>Student Portal</h1>
+
+        <p class="login-subtitle">
+            Login to access your Brightheaven student dashboard.
+        </p>
+
+        <form method="POST" class="student-login-form">
+
+            <label for="student_id">
+                Student ID
+            </label>
+
+            <input
+                type="text"
+                id="student_id"
+                name="student_id"
+                placeholder="Enter your Student ID"
+                required
+            >
+
+            <label for="password">
+                Password
+            </label>
+
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                required
+            >
+
+            <button type="submit">
+                Login to Portal
+            </button>
+
+        </form>
+
+        <div class="login-help">
+
+            <p>
+                Don't have your login details?
+            </p>
+
+            <span>
+                Please contact the school administration.
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
