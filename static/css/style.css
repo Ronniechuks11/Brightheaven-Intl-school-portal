@@ -5489,3 +5489,200 @@ footer {
         display: none !important;
     }
 }
+
+/* ADMIN MOBILE SIDEBAR TEXT FIX */
+@media (max-width: 768px) {
+
+    .admin-sidebar,
+    .admin-sidebar a,
+    .admin-sidebar li {
+        color: #0b0b05 !important;
+    }
+
+    .admin-sidebar {
+        background: #063d2d !important;
+        padding: 25px 18px !important;
+    }
+
+    .admin-sidebar a {
+        display: block;
+        padding: 16px 18px !important;
+        color: #40ff00 !important;
+    }
+
+    .admin-sidebar a:hover {
+        background: #2e8b57 !important;
+        border-radius: 12px;
+    }
+}
+
+/* =====================================
+   ADMIN DASHBOARD — BOTTOM HEADER
+===================================== */
+
+.dashboard-header {
+    position: fixed !important;
+
+    bottom: 14px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+
+    width: calc(100% - 28px) !important;
+    max-width: 1100px;
+
+    min-height: 68px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 12px 22px;
+
+    background: rgba(255, 255, 255, 0.94) !important;
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.12),
+        0 2px 8px rgba(0, 0, 0, 0.06);
+
+    z-index: 9999 !important;
+
+    transition: all .3s ease;
+}
+
+
+/* ADMINISTRATION LABEL */
+
+.dashboard-header .admin-label {
+    color: #2e8b57;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+/* DASHBOARD TITLE */
+
+.dashboard-header h1 {
+
+    margin: 0;
+
+    color: #111827;
+
+    font-size: 22px;
+
+    font-weight: 750;
+}
+
+
+/* MENU BUTTON */
+
+.dashboard-header .dashboard-menu {
+
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: #f1f5f3;
+
+    color: #1f2937;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    transition: .25s ease;
+}
+
+.dashboard-header .dashboard-menu:hover {
+
+    background: #2e8b57;
+
+    color: white;
+
+    transform: scale(1.05);
+}
+
+
+/* ADMIN PROFILE CIRCLE */
+
+.dashboard-header .admin-avatar {
+
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #e6f4ec;
+
+    color: #2e8b57;
+
+    font-size: 18px;
+
+    font-weight: 800;
+
+    border: 2px solid #d5eadf;
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 768px) {
+
+    .dashboard-header {
+
+        bottom: 12px !important;
+
+        width: calc(100% - 24px) !important;
+
+        min-height: 64px;
+
+        padding: 10px 14px;
+
+        border-radius: 18px;
+    }
+
+    .dashboard-header h1 {
+
+        font-size: 19px;
+    }
+
+    .dashboard-header .admin-label {
+
+        font-size: 9px;
+
+        letter-spacing: 1.5px;
+    }
+
+    .dashboard-header .dashboard-menu,
+    .dashboard-header .admin-avatar {
+
+        width: 40px;
+        height: 40px;
+    }
+
+}
