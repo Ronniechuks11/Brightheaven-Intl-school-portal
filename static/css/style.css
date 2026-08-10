@@ -2751,7 +2751,7 @@ footer{
     min-height: 100vh;
     display: flex;
     background: #f5f7f6;
-    color: #17221c;
+    color: #6ba801;
     font-family: Arial, sans-serif;
 }
 
@@ -3051,7 +3051,7 @@ footer{
 .admin-dashboard .admin-welcome p {
     margin: 0;
 
-    color: #737d78;
+    color: #1e3400;
 
     font-size: 13px;
 }
@@ -3650,14 +3650,14 @@ footer{
 
     color: white;
 
-    background: rgba(255,255,255,.10);
+    background: rgba(21, 190, 15, 0.887);
 
     border: 1px solid rgba(255,255,255,.20);
 
     transition: .25s ease;
 
     white-space: nowrap;
-}
+} 
 
 .back-dashboard-btn:hover {
 
@@ -4349,7 +4349,7 @@ footer{
 
     margin: 0;
 
-    color: white;
+    color: rgb(79, 63, 0);
 
     font-size: clamp(32px, 4vw, 45px);
 
@@ -4360,7 +4360,7 @@ footer{
 
     margin-top: 10px;
 
-    color: rgba(255,255,255,.72);
+    color: rgba(46, 98, 12, 0.72);
 }
 
 
