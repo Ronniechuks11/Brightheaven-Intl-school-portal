@@ -116,7 +116,6 @@ window.addEventListener("load", () => {
     }, 1200);
 
 });
-});
 
 window.addEventListener("scroll", () => {
 
