@@ -13,6 +13,12 @@
 
     <link rel="stylesheet"
       href="{{ url_for('static', filename='css/animations.css') }}">
+
+    <script>
+    if (sessionStorage.getItem("loaderShown")) {
+        document.documentElement.classList.add("skip-loader");
+    }
+    </script>
 </head>
 
 <body>

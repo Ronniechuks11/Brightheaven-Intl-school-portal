@@ -91,14 +91,22 @@ window.addEventListener("load", () => {
 
     const loader = document.getElementById("loader");
 
+    if (!loader) return;
+
+    // If loader has already been shown during this browser session
     if (sessionStorage.getItem("loaderShown")) {
+
         loader.style.display = "none";
         return;
+
     }
 
+    // Mark loader as already shown
     sessionStorage.setItem("loaderShown", "true");
 
+    // Show loader on the first page only
     setTimeout(() => {
+
         loader.style.opacity = "0";
 
         setTimeout(() => {
@@ -107,6 +115,7 @@ window.addEventListener("load", () => {
 
     }, 1200);
 
+});
 });
 
 window.addEventListener("scroll", () => {

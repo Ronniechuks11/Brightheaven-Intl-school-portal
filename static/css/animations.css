@@ -114,3 +114,7 @@ transform:none;
         opacity:.5;
     }
 }
+
+html.skip-loader #loader {
+    display: none !important;
+}
