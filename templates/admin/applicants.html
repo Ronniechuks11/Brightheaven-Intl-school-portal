@@ -2,82 +2,267 @@
 
 {% block content %}
 
-<table class="applicants-table">
+<section class="admin-applicants-page">
 
-<section class="hero">
+    <!-- HEADER -->
+    <div class="admin-page-header">
 
-    <div class="hero-content">
+        <div>
+            <span class="admin-eyebrow">
+                ADMINISTRATION
+            </span>
 
-        <h1>Applicants</h1>
+            <h1>Admission Applicants</h1>
 
-        <p>All submitted admission applications.</p>
-        <form method="GET" class="search-form">
+            <p>
+                Review and manage submitted admission applications.
+            </p>
+        </div>
 
-    <input
-        type="text"
-        name="search"
-        placeholder="Search applicant..."
-        value="{{ search }}">
+        <a href="{{ url_for('admin_dashboard') }}" class="back-dashboard-btn">
+            ← Dashboard
+        </a>
 
-    <button type="submit">
-        Search
-    </button>
+    </div>
 
-</form>
-          <thead>
 
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Class</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                </tr>
+    <!-- SEARCH -->
+    <div class="applicants-toolbar">
 
-            </thead>
+        <form method="GET" class="professional-search">
 
-            <tbody>
+            <div class="search-input-wrapper">
 
-            {% for applicant in applicants %}
+                <span>🔍</span>
 
-                <tr>
+                <input
+                    type="text"
+                    name="search"
+                    placeholder="Search by applicant name..."
+                    value="{{ search }}"
+                >
 
-                    <td>{{ applicant["id"] }}</td>
+            </div>
 
-                    <td>
-                        {{ applicant["first_name"] }}
-                        {{ applicant["last_name"] }}
-                    </td>
+            <button type="submit">
+                Search
+            </button>
 
-                    <td>{{ applicant["class_applying"] }}</td>
+            {% if search %}
+                <a href="{{ url_for('applicants') }}" class="clear-search">
+                    Clear
+                </a>
+            {% endif %}
 
-                    <td>{{ applicant["status"] }}</td>
+        </form>
 
-                    <td>
-    <a href="{{ url_for('applicant_details', applicant_id=applicant['id']) }}">
-        View
-    </a>
+        <div class="application-count">
+            {{ applicants|length }} application{% if applicants|length != 1 %}s{% endif %}
+        </div>
 
-    <br><br>
+    </div>
 
-    <a href="{{ url_for('approve_applicant', applicant_id=applicant['id']) }}">
-        ✅ Approve
-    </a>
 
-    <br><br>
+    <!-- APPLICANTS TABLE -->
+    <div class="applicants-panel">
 
-    <a href="{{ url_for('reject_applicant', applicant_id=applicant['id']) }}">
-        ❌ Reject
-    </a>
-</td>
+        <div class="panel-header">
 
-                </tr>
+            <div>
+                <h2>Applications</h2>
 
-            {% endfor %}
+                <p>
+                    Admission applications received by the school.
+                </p>
+            </div>
 
-            </tbody>
+        </div>
 
-        </table>
+
+        {% if applicants %}
+
+        <div class="applicants-table-wrapper">
+
+            <table class="professional-applicants-table">
+
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Applicant</th>
+                        <th>Class</th>
+                        <th>Status</th>
+                        <th>Application</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                {% for applicant in applicants %}
+
+                    <tr>
+
+                        <!-- ID -->
+                        <td data-label="ID">
+
+                            <span class="application-id">
+                                #{{ applicant["id"] }}
+                            </span>
+
+                        </td>
+
+
+                        <!-- APPLICANT -->
+                        <td data-label="Applicant">
+
+                            <div class="applicant-name">
+
+                                <div class="applicant-avatar">
+                                    {{ applicant["first_name"][0] }}
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        {{ applicant["first_name"] }}
+                                        {{ applicant["last_name"] }}
+                                    </strong>
+
+                                    <small>
+                                        {{ applicant["email"] or "No email provided" }}
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+
+                        <!-- CLASS -->
+                        <td data-label="Class">
+
+                            <span class="class-badge">
+                                {{ applicant["class_applying"] }}
+                            </span>
+
+                        </td>
+
+
+                        <!-- STATUS -->
+                        <td data-label="Status">
+
+                            {% if applicant["status"] == "Approved" %}
+
+                                <span class="status-badge status-approved">
+                                    ● Approved
+                                </span>
+
+                            {% elif applicant["status"] == "Rejected" %}
+
+                                <span class="status-badge status-rejected">
+                                    ● Rejected
+                                </span>
+
+                            {% else %}
+
+                                <span class="status-badge status-pending">
+                                    ● Pending
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+
+                        <!-- ACTIONS -->
+                        <td data-label="Application">
+
+                            <div class="applicant-actions">
+
+                                <a
+                                    href="{{ url_for(
+                                        'applicant_details',
+                                        applicant_id=applicant['id']
+                                    ) }}"
+                                    class="view-btn"
+                                >
+                                    View
+                                </a>
+
+                                {% if applicant["status"] == "Pending" %}
+
+                                    <a
+                                        href="{{ url_for(
+                                            'approve_applicant',
+                                            applicant_id=applicant['id']
+                                        ) }}"
+                                        class="approve-btn"
+                                    >
+                                        Approve
+                                    </a>
+
+                                    <a
+                                        href="{{ url_for(
+                                            'reject_applicant',
+                                            applicant_id=applicant['id']
+                                        ) }}"
+                                        class="reject-btn"
+                                    >
+                                        Reject
+                                    </a>
+
+                                {% endif %}
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        {% else %}
+
+        <!-- EMPTY STATE -->
+
+        <div class="empty-applicants">
+
+            <div class="empty-icon">
+                📋
+            </div>
+
+            <h3>No applications found</h3>
+
+            {% if search %}
+
+                <p>
+                    No applicant matches
+                    "<strong>{{ search }}</strong>".
+                </p>
+
+                <a href="{{ url_for('applicants') }}">
+                    View all applications
+                </a>
+
+            {% else %}
+
+                <p>
+                    Submitted admission applications will appear here.
+                </p>
+
+            {% endif %}
+
+        </div>
+
+        {% endif %}
 
     </div>
 

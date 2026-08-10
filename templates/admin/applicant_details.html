@@ -2,60 +2,471 @@
 
 {% block content %}
 
-<section class="hero">
+<section class="applicant-details-page">
 
-    <div class="hero-content">
+    <!-- PAGE HEADER -->
 
-        <h1>Applicant Details</h1>
+    <div class="details-header">
 
-        <h3>Passport Photograph</h3>
+        <div>
 
-    <img
-        src="{{ url_for('static', filename='uploads/passports/' + applicant['passport']) }}"
-        alt="Passport"
-        width="180"
-        style="border-radius:12px;">
+            <span class="admin-eyebrow">
+                ADMISSION APPLICATION
+            </span>
 
-        <p><strong>Name:</strong> {{ applicant["first_name"] }} {{ applicant["last_name"] }}</p>
+            <h1>Applicant Details</h1>
 
-        <p><strong>Date of Birth:</strong> {{ applicant["date_of_birth"] }}</p>
+            <p>
+                Review the applicant's information and admission documents.
+            </p>
 
-        <p><strong>Gender:</strong> {{ applicant["gender"] }}</p>
+        </div>
 
-        <p><strong>Class:</strong> {{ applicant["class_applying"] }}</p>
+        <a
+            href="{{ url_for('applicants') }}"
+            class="back-dashboard-btn"
+        >
+            ← All Applicants
+        </a>
 
-        <p><strong>Parent:</strong> {{ applicant["parent_name"] }}</p>
+    </div>
 
-        <p><strong>Phone:</strong> {{ applicant["phone"] }}</p>
 
-        <p><strong>Email:</strong> {{ applicant["email"] }}</p>
+    <!-- MAIN PROFILE -->
 
-        <p><strong>Address:</strong> {{ applicant["address"] }}</p>
+    <div class="applicant-profile-layout">
 
-        <p><strong>Status:</strong> {{ applicant["status"] }}</p>
 
-        <div class="action-buttons">
+        <!-- LEFT PROFILE CARD -->
 
-    <a href="{{ url_for('static',
-        filename='uploads/birth_certificates/' + applicant['birth_certificate']) }}"
-        target="_blank">
-        View Birth Certificate
-    </a>        
+        <aside class="applicant-profile-card">
 
-    <a href="{{ url_for('approve_applicant', applicant_id=applicant['id']) }}"
-       class="approve-btn">
-        Approve
-    </a>
+            <div class="passport-wrapper">
 
-    <a href="{{ url_for('reject_applicant', applicant_id=applicant['id']) }}"
-       class="reject-btn">
-        Reject
-    </a>
-    <a href="{{ url_for('applicants') }}">
-    ← Back to Applicants
-</a>
+                {% if applicant["passport"] %}
 
-</div>
+                <img
+                    src="{{ url_for(
+                        'static',
+                        filename='uploads/passports/' + applicant['passport']
+                    ) }}"
+                    alt="Passport photograph"
+                    class="applicant-passport"
+                >
+
+                {% else %}
+
+                <div class="passport-placeholder">
+                    👤
+                </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <h2>
+                {{ applicant["first_name"] }}
+                {{ applicant["last_name"] }}
+            </h2>
+
+            <p class="profile-class">
+                {{ applicant["class_applying"] }}
+            </p>
+
+
+            <!-- STATUS -->
+
+            <div class="profile-status">
+
+                {% if applicant["status"] == "Approved" %}
+
+                    <span class="status-badge status-approved">
+                        ● Approved
+                    </span>
+
+                {% elif applicant["status"] == "Rejected" %}
+
+                    <span class="status-badge status-rejected">
+                        ● Rejected
+                    </span>
+
+                {% else %}
+
+                    <span class="status-badge status-pending">
+                        ● Pending Review
+                    </span>
+
+                {% endif %}
+
+            </div>
+
+
+            <div class="profile-divider"></div>
+
+
+            <div class="profile-meta">
+
+                <div>
+
+                    <span>Application ID</span>
+
+                    <strong>
+                        #{{ applicant["id"] }}
+                    </strong>
+
+                </div>
+
+                <div>
+
+                    <span>Application Date</span>
+
+                    <strong>
+                        {{ applicant["date_applied"] or "Not available" }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- RIGHT INFORMATION -->
+
+        <div class="applicant-information">
+
+
+            <!-- PERSONAL INFORMATION -->
+
+            <div class="details-card">
+
+                <div class="details-card-header">
+
+                    <div>
+
+                        <span class="card-eyebrow">
+                            PERSONAL INFORMATION
+                        </span>
+
+                        <h2>Student Information</h2>
+
+                    </div>
+
+                    <span class="card-icon">
+                        👤
+                    </span>
+
+                </div>
+
+
+                <div class="information-grid">
+
+                    <div class="information-item">
+
+                        <span>First Name</span>
+
+                        <strong>
+                            {{ applicant["first_name"] }}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="information-item">
+
+                        <span>Last Name</span>
+
+                        <strong>
+                            {{ applicant["last_name"] }}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="information-item">
+
+                        <span>Date of Birth</span>
+
+                        <strong>
+                            {{ applicant["date_of_birth"] }}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="information-item">
+
+                        <span>Gender</span>
+
+                        <strong>
+                            {{ applicant["gender"] }}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="information-item">
+
+                        <span>Class Applying For</span>
+
+                        <strong>
+                            {{ applicant["class_applying"] }}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PARENT INFORMATION -->
+
+            <div class="details-card">
+
+                <div class="details-card-header">
+
+                    <div>
+
+                        <span class="card-eyebrow">
+                            PARENT / GUARDIAN
+                        </span>
+
+                        <h2>Contact Information</h2>
+
+                    </div>
+
+                    <span class="card-icon">
+                        👨‍👩‍👧
+                    </span>
+
+                </div>
+
+
+                <div class="information-grid">
+
+                    <div class="information-item">
+
+                        <span>Parent / Guardian</span>
+
+                        <strong>
+                            {{ applicant["parent_name"] }}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="information-item">
+
+                        <span>Phone Number</span>
+
+                        <strong>
+                            {{ applicant["phone"] }}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="information-item">
+
+                        <span>Email Address</span>
+
+                        <strong>
+                            {{ applicant["email"] or "Not provided" }}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="information-item information-full">
+
+                        <span>Home Address</span>
+
+                        <strong>
+                            {{ applicant["address"] or "Not provided" }}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- DOCUMENTS -->
+
+            <div class="details-card">
+
+                <div class="details-card-header">
+
+                    <div>
+
+                        <span class="card-eyebrow">
+                            DOCUMENTS
+                        </span>
+
+                        <h2>Application Documents</h2>
+
+                    </div>
+
+                    <span class="card-icon">
+                        📄
+                    </span>
+
+                </div>
+
+
+                <div class="document-list">
+
+
+                    <!-- PASSPORT -->
+
+                    <div class="document-item">
+
+                        <div class="document-info">
+
+                            <div class="document-icon">
+                                🖼️
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Passport Photograph
+                                </strong>
+
+                                <span>
+                                    Applicant identification photograph
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        {% if applicant["passport"] %}
+
+                        <a
+                            href="{{ url_for(
+                                'static',
+                                filename='uploads/passports/' + applicant['passport']
+                            ) }}"
+                            target="_blank"
+                            class="document-btn"
+                        >
+                            View
+                        </a>
+
+                        {% endif %}
+
+                    </div>
+
+
+
+                    <!-- BIRTH CERTIFICATE -->
+
+                    <div class="document-item">
+
+                        <div class="document-info">
+
+                            <div class="document-icon">
+                                📑
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Birth Certificate
+                                </strong>
+
+                                <span>
+                                    Applicant birth certificate document
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        {% if applicant["birth_certificate"] %}
+
+                        <a
+                            href="{{ url_for(
+                                'static',
+                                filename='uploads/birth_certificates/' + applicant['birth_certificate']
+                            ) }}"
+                            target="_blank"
+                            class="document-btn"
+                        >
+                            View Document
+                        </a>
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ADMIN ACTIONS -->
+
+            {% if applicant["status"] == "Pending" %}
+
+            <div class="decision-card">
+
+                <div>
+
+                    <span class="card-eyebrow">
+                        ADMISSION DECISION
+                    </span>
+
+                    <h2>Review Application</h2>
+
+                    <p>
+                        Carefully review the applicant's information and
+                        supporting documents before making a decision.
+                    </p>
+
+                </div>
+
+
+                <div class="decision-actions">
+
+                    <a
+                        href="{{ url_for(
+                            'approve_applicant',
+                            applicant_id=applicant['id']
+                        ) }}"
+                        class="decision-approve"
+                    >
+                        ✓ Approve Application
+                    </a>
+
+
+                    <a
+                        href="{{ url_for(
+                            'reject_applicant',
+                            applicant_id=applicant['id']
+                        ) }}"
+                        class="decision-reject"
+                    >
+                        ✕ Reject Application
+                    </a>
+
+                </div>
+
+            </div>
+
+            {% endif %}
+
+
+        </div>
 
     </div>
 
