@@ -5381,3 +5381,29 @@ footer {
     background-position: center;
     background-attachment: fixed;
 }
+
+nav{
+    width:90%;
+    margin:20px auto;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:18px 30px;
+
+    background:rgba(255,255,255,.92);
+
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
+
+    border-radius:18px;
+
+    border:1px solid rgba(255,255,255,.5);
+
+    position:sticky;
+    top:15px;
+    z-index:1000;
+
+    box-shadow:0 8px 30px rgba(0,0,0,.08);
+}
